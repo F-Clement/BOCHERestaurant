@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://bocherestaurant-7ba3daeb5c57.herokuapp.com/',
+ALLOWED_HOSTS = ['bocherestaurant-7ba3daeb5c57.herokuapp.com',
                  '8000-f-clement-bocherestauran-jtwwo64wk3.us2.codeanyapp.com']
 
 
