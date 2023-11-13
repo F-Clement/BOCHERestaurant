@@ -32,11 +32,16 @@ class AddReservation(generic.edit.CreateView):
         return render(request, "../templates/add_reservation.html", context)
 
 
+@method_decorator(login_required, name='dispatch')
 class ReservationPage(generic.ListView):
     template_name = "reservations.html"
     model = Reservation
 
+    def get_queryset(self):
+        return super().get_queryset().filter(user=self.request.user)
 
+
+@method_decorator(login_required, name='dispatch')
 class EditReservation(generic.edit.UpdateView):
     template_name = "edit_reservation.html"
     form_class = ReservationForm
@@ -56,6 +61,7 @@ class EditReservation(generic.edit.UpdateView):
         return render(request, "../templates/edit_reservation.html", context)
 
 
+@method_decorator(login_required, name='dispatch')
 class DeleteReservation(generic.edit.DeleteView):
     template_name = "delete_reservation.html"
     model = Reservation
