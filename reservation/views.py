@@ -32,3 +32,22 @@ class AddReservation(generic.edit.CreateView):
 class ReservationPage(generic.ListView):
     template_name = "reservations.html"
     model = Reservation
+
+
+class EditReservation(generic.edit.UpdateView):
+    template_name = "edit_reservation.html"
+    form_class = ReservationForm
+    model = Reservation
+
+    def edit(self, request, reservation_id):
+        reserved = get_object_or_404(Reservation, id=reservation_id)
+        if request.method == 'POST':
+            form = ReservationForm(request.POST, instance=reserved)
+            if form.is_valid():
+                form.save()
+                return redirect('reservation')
+        form = ReservationForm(initial=reserved)
+        context = {
+            'form': form
+        }
+        return render(request, "../templates/edit_reservation.html", context)

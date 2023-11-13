@@ -7,7 +7,10 @@ urlpatterns = [
          name='homepage'),
     path('add_reservation', views.AddReservation.as_view(
         success_url="/reservations"), name='new reservation'),
-    path('reservations/', views.ReservationPage.as_view(), name='list reservation'),
+    path('reservations/', views.ReservationPage.as_view(),
+         name='list reservation'),
+    path('edit_reservation/<int:pk>', views.EditReservation.as_view(
+        success_url="/reservations"))
 
 
 ]
