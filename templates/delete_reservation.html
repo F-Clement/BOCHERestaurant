@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<h3>Are You Sure You Want To Cancel This Reservation?</h3>
+{{ reservation }}
+<form method="POST">
+  {% csrf_token %}
+  <div class="text-center">
+    <input type="submit" class="btn btn-danger" value="Delete" />
+  </div>
+  <div class="text-center"></div>
+</form>
+
+{% endblock %}

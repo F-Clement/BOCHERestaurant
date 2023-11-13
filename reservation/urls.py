@@ -10,7 +10,11 @@ urlpatterns = [
     path('reservations/', views.ReservationPage.as_view(),
          name='list reservation'),
     path('edit_reservation/<int:pk>', views.EditReservation.as_view(
-        success_url="/reservations"))
+        success_url="/reservations")),
+    path('delete_reservation/<int:pk>',
+         views.DeleteReservation.as_view(success_url="/reservations"))
+
+
 
 
 ]

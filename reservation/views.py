@@ -45,9 +45,19 @@ class EditReservation(generic.edit.UpdateView):
             form = ReservationForm(request.POST, instance=reserved)
             if form.is_valid():
                 form.save()
-                return redirect('reservation')
+                return redirect('/reservations')
         form = ReservationForm(initial=reserved)
         context = {
             'form': form
         }
         return render(request, "../templates/edit_reservation.html", context)
+
+
+class DeleteReservation(generic.edit.DeleteView):
+    template_name = "delete_reservation.html"
+    model = Reservation
+
+    def delete(self, request, pk):
+        delete_reserved = get_object_or_404(Reservation, id=pk)
+        delete_reserved.delete()
+        return redirect('/reservations')
