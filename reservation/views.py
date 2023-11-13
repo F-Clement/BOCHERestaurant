@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from .models import Reservation
 from .forms import ReservationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
 # Create your views here.
@@ -10,6 +12,7 @@ class HomePage(generic.TemplateView):
     template_name = "index.html"
 
 
+@method_decorator(login_required, name='dispatch')
 class AddReservation(generic.edit.CreateView):
     template_name = "add_reservation.html"
     form_class = ReservationForm

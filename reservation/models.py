@@ -23,4 +23,4 @@ class Reservation(models.Model):
     # In case a user makes more than one reservation they should follow an order
 
     def __str__(self):
-        return self.reservation_name
+        return self.reservation_name + " at " + str(self.reservation_date) + " " + str(self.reservation_time)
