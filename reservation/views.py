@@ -21,7 +21,6 @@ class AddReservation(generic.edit.CreateView):
         if request.method == 'POST':
             form = ReservationForm(request.POST)
             if form.is_valid():
-                # form.instance.user = 1
                 form.save()
                 return redirect('reservations')
         form = ReservationForm()
@@ -30,6 +29,10 @@ class AddReservation(generic.edit.CreateView):
         }
 
         return render(request, "../templates/add_reservation.html", context)
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(AddReservation, self).form_valid(form)
 
 
 @method_decorator(login_required, name='dispatch')

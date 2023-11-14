@@ -4,7 +4,43 @@
   <div class="row g-3">
     <form method="POST" action="">
       {% csrf_token %}
-      <div class="form-group">{{ form.as_p }}</div>
+      <!-- <div class="form-group">{{ form.as_table }}</div> -->
+
+      {{ form.non_field_errors }}
+      <div class="fieldWrapper">
+        {{ form.reservation_name.errors }}
+        <label for="{{ form.reservation_name.id_for_label }}"> Name:</label>
+        {{ form.reservation_name }}
+      </div>
+      <div class="fieldWrapper">
+        {{ form.reservation_email.errors }}
+        <label for="{{ form.reservation_email.id_for_label }}">Email:</label>
+        {{ form.reservation_email }}
+      </div>
+      <div class="fieldWrapper">
+        {{ form.phone_number.errors }}
+        <label for="{{ form.phone_number.id_for_label }}">Phone:</label>
+        {{ form.phone_number }}
+      </div>
+      <div class="fieldWrapper">
+        {{ form.number_people.errors }}
+        <label for="{{ form.number_people.id_for_label }}"
+          >Number of people:</label
+        >
+        {{ form.number_people }}
+      </div>
+      <div class="fieldWrapper">
+        {{ form.reservation_date.errors }}
+        <label for="{{ form.reservation_date.id_for_label }}">Date:</label>
+        {{ form.reservation_date }}
+      </div>
+
+      <div class="fieldWrapper">
+        {{ form.reservation_time.errors }}
+        <label for="{{ form.reservation_time.id_for_label }}">Time:</label>
+        {{ form.reservation_time }}
+      </div>
+
       <button class="btn btn-success" type="submit">Reserve</button>
     </form>
   </div>
