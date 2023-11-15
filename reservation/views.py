@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from .models import Reservation, RestaurantTable
+from .models import Reservation, RestaurantTable, RESERVED_TIME
 from .forms import ReservationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.contrib import messages
 
 
 # Create your views here.
@@ -52,16 +53,22 @@ class AddReservation(generic.edit.CreateView):
         
         if len(available_tables) > 0:
             form.instance.reserved_table = available_tables[0]
-            # messages.success(
-            # self.request,
-            # f'Booking confirmed for {npeople} people on {rdate} at {rtime}'
-            # )
+            messages.success(
+            self.request,
+            f'Booking confirmed for {npeople} people on {rdate} at {RESERVED_TIME[rtime][1]}'
+            )
         else:
-            pass
-            # messages.failure(
-            # self.request,
-            # f'No table available for {npeople} people on {rdate} at {rtime}'
-            # )
+            messages.error(
+            self.request,
+            f'No table available for {npeople} people on {rdate} at {RESERVED_TIME[rtime][1]}'
+            )
+
+            # form = ReservationForm(initial=reserved)
+            context = {
+                'form': form
+             }
+
+            return render(self.request, "../templates/add_reservation.html", context)
 
 
         return super(AddReservation, self).form_valid(form)
