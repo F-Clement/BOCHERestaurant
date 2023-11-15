@@ -9,6 +9,7 @@ RESERVED_TIME = ((1, "09:00am - 11:00am"), (2, "11:00am - 13:00pm"),
                  (5, "17:00pm - 21:00pm"))
 
 
+
 # Create your models here.
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -19,8 +20,17 @@ class Reservation(models.Model):
     reservation_date = models.DateField()
     reservation_time = models.IntegerField(choices=RESERVED_TIME, default=1)
     datetime_created = models.DateTimeField(auto_now_add=True)
+    reserved_table = models.ForeignKey('RestaurantTable', on_delete=models.CASCADE)
 
     # In case a user makes more than one reservation they should follow an order
 
     def __str__(self):
         return self.reservation_name + " at " + str(self.reservation_date) + " " + str(self.reservation_time)
+
+
+class RestaurantTable(models.Model):
+    table_number = models.IntegerField(unique=True)
+    table_capacity = models.IntegerField(default=2)
+
+    def __str__(self):
+        return str(self.table_number)

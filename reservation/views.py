@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from .models import Reservation
+from .models import Reservation, RestaurantTable
 from .forms import ReservationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
@@ -32,6 +32,38 @@ class AddReservation(generic.edit.CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        rdate = form.cleaned_data['reservation_date']
+        rtime = form.cleaned_data['reservation_time']
+        npeople = form.cleaned_data['number_people']
+
+        reservations_on_requested_date = Reservation.objects.filter(
+            reservation_date=rdate, reservation_time=rtime)
+
+        available_tables = list(RestaurantTable.objects.filter(
+            table_capacity__gte=npeople
+        ).order_by('table_capacity'))
+
+
+        for reservation in reservations_on_requested_date:
+            for atable in available_tables:
+                if atable.table_number == reservation.reserved_table.table_number:
+                    available_tables.remove(atable)
+                    break
+        
+        if len(available_tables) > 0:
+            form.instance.reserved_table = available_tables[0]
+            # messages.success(
+            # self.request,
+            # f'Booking confirmed for {npeople} people on {rdate} at {rtime}'
+            # )
+        else:
+            pass
+            # messages.failure(
+            # self.request,
+            # f'No table available for {npeople} people on {rdate} at {rtime}'
+            # )
+
+
         return super(AddReservation, self).form_valid(form)
 
 
