@@ -1,34 +1,54 @@
-{% extends "account/base_entrance.html" %}
+{% extends "base.html" %}
+
 {% load i18n %}
-{% load allauth account socialaccount %}
-{% block head_title %}
-    {% trans "Sign In" %}
-{% endblock head_title %}
+{% load account socialaccount %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
 {% block content %}
-    {% element h1 %}
-        {% trans "Sign In" %}
-    {% endelement %}
-    <p>
-        {% blocktrans %}If you have not created an account yet, then please
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}
-    </p>
-    {% url 'account_login' as login_url %}
-    {% element form form=form method="post" action=login_url tags="entrance,login" %}
-        {% slot body %}
-            {% csrf_token %}
-            {% element fields form=form unlabeled=True %}
-            {% endelement %}
-            {% if redirect_field_value %}
-                <input type="hidden"
-                       name="{{ redirect_field_name }}"
-                       value="{{ redirect_field_value }}" />
-            {% endif %}
-        {% endslot %}
-        {% slot actions %}
-            {% element button type="submit" tags="prominent,login" %}
-                {% trans "Sign In" %}
-            {% endelement %}
-        {% endslot %}
-    {% endelement %}
-    {% include "socialaccount/snippets/login.html" with page_layout="entrance" %}
-{% endblock content %}
+<div class = "container overflow-scroll">
+<div class="card mx-auto mt-5 mb-3" style="width: 18rem;">
+  <div class="card-header">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <h3>{% trans "Sign In" %}</h3>
+
+      <p>{% blocktrans %}Welcome back to the BOCHE Restaurant.{% endblocktrans %}</p>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="col-md-8 mt-3 offset-md-2">
+      <form class="login" method="POST" action="{% url 'account_login' %}">
+        {% csrf_token %}
+        
+        {{ form.non_field_errors }}
+      <div class="mb-3">
+        {{ form.login.errors }}
+        <label for="{{ form.login.id_for_label }}"> Username:</label>
+        {{ form.login }}
+      </div>
+      <div class="mb-3">
+        {{ form.password.errors }}
+        <label for="{{ form.password.id_for_label }}"> Username:</label>
+        {{ form.password }}
+      </div>
+        
+        <div class="mb-3">
+        {{ form.remember.errors }}
+        <label for="{{ form.remember.id_for_label }}"> Remember me:</label>
+        {{ form.remember }}
+        
+      </div>
+      
+        {% if redirect_field_value %}
+        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+        <button class="btn btn-primary right" type="submit">{% trans "Sign In" %}</button>
+        
+      </form>
+      <span class="helptext"><a href="/accounts/password/reset/">Forgot your password?</a></span>
+
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
