@@ -19,28 +19,28 @@
             {% csrf_token %}
 
             {{ form.non_field_errors }}
-            <div class="mb-3, form-outline">
+            <div class="mb-3 form-outline">
                 {{ form.username.errors }}
-                <label for="{{ form.username.id_for_label }}"> Username:</label>
+                <label for="{{ form.username.id_for_label }}"></label>
                 {{ form.username }}
             </div>
             <div class="mb-3 form-outline">
                 {{ form.email.errors }}
-                <label class="form-label" for="{{ form.email.id_for_label }}"> Email:</label>
+                <label class="form-label" for="{{ form.email.id_for_label }}"></label>
                 {{ form.email }}
             </div>
-            <div class="mb-3">
+            <div class="mb-3 form-outline">
                 {{ form.password1.errors }}
-                <label class="form-label" for="{{ form.password1.id_for_label }}"> Password : </label>
+                <label class="form-label" for="{{ form.password1.id_for_label }}"></label>
                 {{ form.password1 }}
             </div>
-            <div class="mb-3">
+            <div class="mb-3 form-outline">
                 {{ form.password2.errors }}
-                <label class="form-label" for="{{ form.password2.id_for_label }}"> Confirm Password : </label>
+                <label class="form-label" for="{{ form.password2.id_for_label }}"></label>
                 {{ form.password2 }}
             </div>
             <div class="text-left">
-                <ul>
+                <ul class="list-unstyled">
                     <li>Your password can’t be too similar to your other personal information.</li>
                     <li>Your password must contain at least 8 characters.</li>
                     <li>Your password can’t be a commonly used password.</li>
