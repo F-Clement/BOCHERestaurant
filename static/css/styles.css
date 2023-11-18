@@ -1,4 +1,29 @@
-.container {
+.container>.carousel {
     margin-top: 5vh;
     margin-bottom: 10vh;
+    width: 100%;
+}
+
+
+/* Reservations */
+.my_reservation {
+    text-align: center;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
+
+}
+
+.reasons {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.col-xl-4{
+    background-color: rgb(236, 232, 227);
+    border: 1px solid;
+    margin-right: auto;
+    margin-bottom: 1vh;
+}
+.col-xl-4>h5 {
+    text-align: center;
 }

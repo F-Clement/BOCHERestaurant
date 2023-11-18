@@ -1,6 +1,8 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
-<div class="container-fluid">Reservations</div>
+<div class="container-fluid">
+    
+    <h4 class="my_reservation">My Reservation(s)</h4>
     {% if messages %}
         <ul class="messages bg-success">
         {% for message in messages %}
@@ -51,6 +53,7 @@
     {% endfor %}
   </table>
   <a href="/add_reservation">Make Reservation</a>
+</div>
 </div>
 
 {% endblock %}
