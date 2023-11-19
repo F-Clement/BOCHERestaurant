@@ -45,18 +45,20 @@
 }
 
 
-.food,.smoothies,.juice{
+.food,
+.smoothies,
+.juice {
     text-align: center;
     color: lightslategray;
     margin-top: 3vh;
 }
 
-.menu>.row>.col-4{
+.menu>.row>.col-4 {
     background-color: rgb(236, 232, 227);
     border: 1px solid;
     margin-right: auto;
 }
 
-.menu{
+.menu {
     margin-bottom: 2vh;
 }

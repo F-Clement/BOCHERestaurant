@@ -1,7 +1,6 @@
 {% extends "base.html" %} {% load static %} {% block content %}
 
 <div class="container-fluid">
-    
     <h4 class="my_reservation">My Reservation(s)</h4>
     {% if messages %}
         <ul class="messages bg-success">
@@ -52,8 +51,10 @@
     </tbody>
     {% endfor %}
   </table>
-  <a href="/add_reservation">Make Reservation</a>
+  <a href="/add_reservation" class="btn btn-primary mt-2 float-end mb-2">Make Reservation</a>
 </div>
 </div>
+
+{% include 'boche_carousel.html' %}
 
 {% endblock %}
