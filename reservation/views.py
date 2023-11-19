@@ -13,6 +13,9 @@ class HomePage(generic.TemplateView):
     template_name = "index.html"
 
 
+class Menu(generic.TemplateView):
+    template_name = "menu.html"
+
 @method_decorator(login_required, name='dispatch')
 class AddReservation(generic.edit.CreateView):
     template_name = "add_reservation.html"
