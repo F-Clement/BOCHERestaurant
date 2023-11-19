@@ -44,32 +44,30 @@ class AddReservation(generic.edit.CreateView):
             table_capacity__gte=npeople
         ).order_by('table_capacity'))
 
-
         for reservation in reservations_on_requested_date:
             for atable in available_tables:
                 if atable.table_number == reservation.reserved_table.table_number:
                     available_tables.remove(atable)
                     break
-        
+
         if len(available_tables) > 0:
             form.instance.reserved_table = available_tables[0]
             messages.success(
-            self.request,
-            f'Booking confirmed for {npeople} people on {rdate} at {RESERVED_TIME[rtime][1]}'
+                self.request,
+                f'Booking confirmed for {npeople} people on {rdate} at {RESERVED_TIME[rtime][1]}'
             )
         else:
             messages.error(
-            self.request,
-            f'No table available for {npeople} people on {rdate} at {RESERVED_TIME[rtime][1]}'
+                self.request,
+                f'No table available for {npeople} people on {rdate} at {RESERVED_TIME[rtime][1]}'
             )
 
             # form = ReservationForm(initial=reserved)
             context = {
                 'form': form
-             }
+            }
 
             return render(self.request, "../templates/add_reservation.html", context)
-
 
         return super(AddReservation, self).form_valid(form)
 
