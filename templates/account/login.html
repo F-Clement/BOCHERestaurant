@@ -14,6 +14,7 @@
       <p>{% blocktrans %}Welcome back to the BOCHE Restaurant.{% endblocktrans %}</p>
     
   </div>
+  <!-- Get individual email fields so as to be able to use bootstrap on them -->
   <div class="card-body">
     
       <form class="login" method="POST" action="{% url 'account_login' %}">
@@ -44,7 +45,8 @@
         <button class="btn btn-primary right" type="submit">{% trans "Sign In" %}</button>
         
       </form>
-      <span class="helptext"><a href="/accounts/password/reset/">Forgot your password?</a></span>
+      <span class="helptext"><a href="/accounts/password/reset/">
+        Forgot your password?</a></span>
 
     
   </div>

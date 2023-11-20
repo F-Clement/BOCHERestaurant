@@ -1,3 +1,5 @@
+
+/* Carousel */
 .container>.carousel {
     margin-top: 5vh;
     margin-bottom: 10vh;
@@ -11,21 +13,25 @@
     margin-bottom: 5vh;
 }
 
+
+/* grid containing reasons to choose BOCHE */
 .reasons {
     text-align: center;
     margin-top: 5vh;
 }
 
-.cards>.row>.col-xl-4 {
-    background-color: rgb(236, 232, 227);
+.card_notes>.row>.col-xl-3 {
+    background-color: #929fba;
     border: 1px solid;
     margin-right: auto;
     margin-bottom: 1vh;
+    color: white;
 
 }
 
+/* Adding a reservation */
 .container-lg>.row>.col-xl-6 {
-    background-color: rgb(236, 232, 227);
+    background-color: #929fba;
     border: 1px solid;
     margin-right: auto;
     margin-bottom: 4vh;
@@ -44,7 +50,7 @@
     margin: 5vh;
 }
 
-
+/* Menu */
 .food,
 .smoothies,
 .juice {
@@ -54,7 +60,7 @@
 }
 
 .menu>.row>.col-4 {
-    background-color: rgb(236, 232, 227);
+    background-color: rgba(0, 0, 0, 0.2);
     border: 1px solid;
     margin-right: auto;
 }

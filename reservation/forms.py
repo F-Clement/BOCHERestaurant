@@ -1,6 +1,8 @@
 from django import forms
 from .models import Reservation
 
+# Automatic generate a reservation form to enable automatic validation
+
 
 class ReservationForm(forms.ModelForm):
     class Meta:

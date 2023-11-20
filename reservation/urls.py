@@ -1,7 +1,7 @@
 from . import views
 from django.urls import path
 
-
+# URL patterns for our views
 urlpatterns = [
     path('', views.HomePage.as_view(),
          name='homepage'),
@@ -14,8 +14,5 @@ urlpatterns = [
         success_url="/reservations")),
     path('delete_reservation/<int:pk>',
          views.DeleteReservation.as_view(success_url="/reservations"))
-
-
-
 
 ]
