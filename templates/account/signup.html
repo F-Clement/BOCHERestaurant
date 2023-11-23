@@ -8,7 +8,7 @@
 <div class="row justify-content-center">
 <div class="col-md-auto">
     <div class="card mt-5 mb-5">
-        <div class=" text-center card-header">
+        <div class=" text-center card-header boche-bg">
 
             <h3>{% trans "Sign Up" %}</h3>
 
@@ -16,7 +16,7 @@
 
         </div>
     <!-- Get individual signup fields so as to be able to use bootstrap on them -->
-        <div class="card-body">
+        <div class="card-body ">
             
             <form class="login" method="POST" action="{% url 'account_signup' %}">
                 {% csrf_token %}
@@ -24,22 +24,18 @@
                 {{ form.non_field_errors }}
                 <div class="mb-3 form-outline">
                     {{ form.username.errors }}
-                    <label for="{{ form.username.id_for_label }}"></label>
                     {{ form.username }}
                 </div>
                 <div class="mb-3 form-outline">
                     {{ form.email.errors }}
-                    <label class="form-label" for="{{ form.email.id_for_label }}"></label>
                     {{ form.email }}
                 </div>
                 <div class="mb-3 form-outline">
                     {{ form.password1.errors }}
-                    <label class="form-label" for="{{ form.password1.id_for_label }}"></label>
                     {{ form.password1 }}
                 </div>
                 <div class="mb-3 form-outline">
                     {{ form.password2.errors }}
-                    <label class="form-label" for="{{ form.password2.id_for_label }}"></label>
                     {{ form.password2 }}
                 </div>
             </div>

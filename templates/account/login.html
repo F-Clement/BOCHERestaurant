@@ -6,45 +6,47 @@
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
-<div class="card text-center mt-5 mb-5" >
-  <div class="card-header">
+<div class="row justify-content-center">
+<div class="col-md-auto">
+    <div class="card text-center mt-5 mb-5" >
+    <div class="card-header boche-bg">
     
-    <h3>{% trans "Sign In" %}</h3>
+        <h3>{% trans "Sign In" %}</h3>
 
-      <p>{% blocktrans %}Welcome back to the BOCHE Restaurant.{% endblocktrans %}</p>
+        <p>{% blocktrans %}Welcome back to the BOCHE Restaurant.{% endblocktrans %}</p>
     
-  </div>
-  <!-- Get individual email fields so as to be able to use bootstrap on them -->
-  <div class="card-body mt-4">
-    
-    <form class="login" method="POST" action="{% url 'account_login' %}">
-        {% csrf_token %}
+    </div>
+    <!-- Get individual email fields so as to be able to use bootstrap on them -->
+    <div class="card-body mt-4">
         
-        {{ form.non_field_errors }}
-      <div class="mb-3">
-        {{ form.login.errors }}
-        <label for="{{ form.login.id_for_label }}"> Username:</label>
-        {{ form.login }}
-      </div>
-      <div class="mb-3">
-        {{ form.password.errors }}
-        <label for="{{ form.password.id_for_label }}"> Password : </label>
-        {{ form.password }}
-      </div>
+        <form class="login" method="POST" action="{% url 'account_login' %}">
+            {% csrf_token %}
+            
+            {{ form.non_field_errors }}
+        <div class="mb-3">
+            {{ form.login.errors }}
+            {{ form.login }}
+        </div>
+        <div class="mb-3">
+            {{ form.password.errors }}
+            {{ form.password }}
+        </div>
 
-      <div class="mb-3">
-        {{ form.remember.errors }}
-        <label for="{{ form.remember.id_for_label }}"> Remember me:</label>
-        {{ form.remember }}
-        
-      </div>
+        <div class="mb-3">
+            {{ form.remember.errors }}
+            <label for="{{ form.remember.id_for_label }}"> Remember me:</label>
+            {{ form.remember }}
+            
+        </div>
 
-      {% if redirect_field_value %}
-        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-      {% endif %}
-        <button class="btn btn-primary right" type="submit">{% trans "Sign In" %}</button>
-        
-    </form>
-  </div>
+        {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+        {% endif %}
+            <button class="btn btn-primary right" type="submit">{% trans "Sign In" %}</button>
+            
+        </form>
+    </div>
+    </div>
+</div>
 </div>
 {% endblock %}
