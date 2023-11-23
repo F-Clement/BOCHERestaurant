@@ -9,15 +9,15 @@
 <div class="card text-center mt-5 mb-5" >
   <div class="card-header">
     
-      <h3>{% trans "Sign In" %}</h3>
+    <h3>{% trans "Sign In" %}</h3>
 
       <p>{% blocktrans %}Welcome back to the BOCHE Restaurant.{% endblocktrans %}</p>
     
   </div>
   <!-- Get individual email fields so as to be able to use bootstrap on them -->
-  <div class="card-body">
+  <div class="card-body mt-4">
     
-      <form class="login" method="POST" action="{% url 'account_login' %}">
+    <form class="login" method="POST" action="{% url 'account_login' %}">
         {% csrf_token %}
         
         {{ form.non_field_errors }}
@@ -31,24 +31,20 @@
         <label for="{{ form.password.id_for_label }}"> Password : </label>
         {{ form.password }}
       </div>
-        
-        <div class="mb-3">
+
+      <div class="mb-3">
         {{ form.remember.errors }}
         <label for="{{ form.remember.id_for_label }}"> Remember me:</label>
         {{ form.remember }}
         
       </div>
-      
-        {% if redirect_field_value %}
+
+      {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-        {% endif %}
+      {% endif %}
         <button class="btn btn-primary right" type="submit">{% trans "Sign In" %}</button>
         
-      </form>
-      <span class="helptext"><a href="/accounts/password/reset/">
-        Forgot your password?</a></span>
-
-    
+    </form>
   </div>
 </div>
 {% endblock %}

@@ -7,22 +7,22 @@
 
 {% block content %}
 <div class="container">
-<div class="card text-center mt-5 mb-5">
+  <div class="card text-center mt-5 mb-5">
     <div class="card-header">
-        <h3>{% trans "Sign Out" %}</h3>
-        <p>{% trans 'Are you sure you want to sign out?' %}</p>
+      <h3>{% trans "Sign Out" %}</h3>
+      <p>{% trans 'Are you sure you want to sign out?' %}</p>
     </div>
     <!-- Get individual logout fields so as to be able to use bootstrap -->
     <div class="card-body">
-        <form class="login" method="POST" action="{% url 'account_logout' %}">
+      <form class="login" method="POST" action="{% url 'account_logout' %}">
             {% csrf_token %}
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
+        {% endif %}
             <button class="btn btn-primary right" type="submit">{% trans "Sign Out" %}</button>
-        </form>
+      </form>
     </div>
-</div>
+  </div>
 </div>
 {% include 'why_boche.html' %}
 

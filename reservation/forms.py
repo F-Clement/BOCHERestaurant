@@ -10,7 +10,5 @@ class ReservationForm(forms.ModelForm):
         fields = ['reservation_name', 'reservation_email', 'phone_number',
                   'number_people', 'reservation_date', 'reservation_time']
 
-        # fields = '__all__'
-
         widgets = {'reservation_date': forms.DateInput(
-            attrs={'type': 'date'})}
+            attrs={'type': 'date', 'class': 'datepicker'})}

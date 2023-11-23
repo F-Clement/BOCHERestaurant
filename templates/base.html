@@ -26,7 +26,7 @@
 
     <title>BOCHE Restaurant</title>
   </head>
-<!-- Site logo and Navigation -->
+  <!-- Site logo and Navigation -->
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
@@ -109,11 +109,19 @@
             <p>Follow us on social platforms</p>
             <div class="mt-4">
               <!-- Facebook -->
-              <a href="https://facebook.com" target="_blank" type="button" class="btn btn-floating btn-primary btn-sm"
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                type="button"
+                class="btn btn-floating btn-primary btn-sm"
                 ><i class="fab fa-facebook-f"></i
               ></a>
               <!-- Twitter -->
-              <a href="https://twitter.com" target="_blank" type="button" class="btn btn-floating btn-primary btn-sm"
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                type="button"
+                class="btn btn-floating btn-primary btn-sm"
                 ><i class="fab fa-twitter"></i
               ></a>
             </div>
@@ -165,11 +173,17 @@
     <!-- Setting timer for pop notifications when we login, logout
     make a reservation, cancel etc -->
     <script>
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 3000);
+      setTimeout(function () {
+        let messages = document.getElementById("msg");
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+      }, 3000);
+
+      $(document).ready(function () {
+        $(".datepicker").datepicker({
+          startDate: new Date(),
+        });
+      });
     </script>
   </body>
 </html>

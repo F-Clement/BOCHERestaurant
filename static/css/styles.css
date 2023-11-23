@@ -1,70 +1,70 @@
-
 /* Carousel */
-.container>.carousel {
-    margin-top: 5vh;
-    margin-bottom: 10vh;
-    width: 100%;
+.container > .carousel {
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+  width: 100%;
 }
 
 /* Reservations */
 .my_reservation {
-    text-align: center;
-    margin-top: 10vh;
-    margin-bottom: 5vh;
+  text-align: center;
+  margin-top: 10vh;
+  margin-bottom: 5vh;
 }
-
 
 /* grid containing reasons to choose BOCHE */
 .reasons {
-    text-align: center;
-    margin-top: 5vh;
+  text-align: center;
+  margin-top: 5vh;
 }
 
-.card_notes>.row>.col-xl-3 {
-    background-color: #929fba;
-    border: 1px solid;
-    margin-right: auto;
-    margin-bottom: 1vh;
-    color: white;
-
+.card_notes > .row > .col-xl-3 {
+  background-color: #929fba;
+  border: 1px solid;
+  margin-bottom: 1vh;
+  color: white;
 }
 
 /* Adding a reservation */
-.container-lg>.row>.col-xl-6 {
-    background-color: #929fba;
-    border: 1px solid;
-    margin-right: auto;
-    margin-bottom: 4vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 10vh;
+.container-lg > .row > .col-xl-6 {
+  background-color: #929fba;
+  border: 1px solid;
+  margin-right: auto;
+  margin-bottom: 4vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
 }
 
-.col-xl-4>h5 {
-    text-align: center;
+.col-xl-4 > h5 {
+  text-align: center;
 }
 
 .add_reservation {
-    text-align: center;
-    margin: 5vh;
+  text-align: center;
+  margin: 5vh;
 }
 
 /* Menu */
 .food,
 .smoothies,
 .juice {
-    text-align: center;
-    color: lightslategray;
-    margin-top: 3vh;
+  text-align: center;
+  color: lightslategray;
+  margin-top: 3vh;
 }
 
-.menu>.row>.col-4 {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid;
-    margin-right: auto;
+.menu > .row > .col-4 {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid;
+  margin-right: auto;
 }
 
 .menu {
-    margin-bottom: 2vh;
+  margin-bottom: 2vh;
+}
+
+.boche-pull-right {
+  float: right;
 }

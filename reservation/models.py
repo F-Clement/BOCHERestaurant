@@ -22,12 +22,13 @@ class Reservation(models.Model):
     reserved_table = models.ForeignKey(
         'RestaurantTable', on_delete=models.CASCADE)
 
-    # In case a user makes more than one reservation they should follow an order
-
     def __str__(self):
-        return self.reservation_name + " at " + str(self.reservation_date) + " "
-         + str(self.reservation_time)
+        return self.reservation_name + " at " + str(self.reservation_date) + \
+            " " + str(self.reservation_time)
 
+    def validate_date(date):
+        if date < timezone.now().date():
+            raise ValidationError("Date can not be in the past")
 #  A table model to be used to verify available space and avoid over booking
 # when making reservations.
 

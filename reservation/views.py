@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
-from .models import Reservation, RestaurantTable, RESERVED_TIME
+from .models import Reservation as Reservation, RestaurantTable, RESERVED_TIME
 from .forms import ReservationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.contrib import messages
+from django.db.models import Q
 
 
 # Create your views here.
@@ -22,21 +23,7 @@ class AddReservation(generic.edit.CreateView):
     template_name = "add_reservation.html"
     form_class = ReservationForm
 
-# Check that the form is rightly filled.
-    def add_reservation(self, request, form):
-        if request.method == 'POST':
-            form = ReservationForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return redirect('reservations')
-        form = ReservationForm()
-        context = {
-            'form': form
-        }
-
- #        return render(request, "../templates/add_reservation.html", contex
-t)
-Validate form to avoid double booking
+    # Validate booking form and to avoid double booking
     def form_valid(self, form):
         form.instance.user = self.request.user
         rdate = form.cleaned_data['reservation_date']
@@ -50,9 +37,9 @@ Validate form to avoid double booking
             table_capacity__gte=npeople
         ).order_by('table_capacity'))
 
-        for reservation in reservations_on_requested_date:
+        for res in reservations_on_requested_date:
             for atable in available_tables:
-                if atable.table_number == reservation.reserved_table.table_number:
+                if atable.table_number == res.reserved_table.table_number:
                     available_tables.remove(atable)
                     break
 
@@ -60,12 +47,14 @@ Validate form to avoid double booking
             form.instance.reserved_table = available_tables[0]
             messages.success(
                 self.request,
-                f'Booking confirmed for {rdate} at {RESERVED_TIME[rtime][1]}'
+                f'Booking confirmed for {npeople} people on' +
+                f'{rdate} at {RESERVED_TIME[rtime][1]}'
             )
         else:
             messages.error(
                 self.request,
-                f'No table available for {npeople} people on {rdate}'
+                f'No table available for {npeople} people on' +
+                f'{rdate} at {RESERVED_TIME[rtime][1]}'
             )
 
             # form = ReservationForm(initial=reserved)
@@ -73,13 +62,15 @@ Validate form to avoid double booking
                 'form': form
             }
 
-            return render(self.request, "../templates/add_reservation.html",
-             context)
+            return render(self.request,
+                          "../templates/add_reservation.html", context)
 
         return super(AddReservation, self).form_valid(form)
 
 
 # View for reservations template
+
+
 @method_decorator(login_required, name='dispatch')
 class ReservationPage(generic.ListView):
     template_name = "reservations.html"
@@ -111,6 +102,53 @@ class EditReservation(generic.edit.UpdateView):
         }
         return render(request, "../templates/edit_reservation.html", context)
 
+    def form_valid(self, form):
+        res_id = self.get_object().id
+        form.instance.user = self.request.user
+        rdate = form.cleaned_data['reservation_date']
+        rtime = form.cleaned_data['reservation_time']
+        npeople = form.cleaned_data['number_people']
+
+        res_on_requested_date = Reservation.objects.filter(
+            reservation_date=rdate, reservation_time=rtime)
+
+        available_tables = list(RestaurantTable.objects.filter(
+            table_capacity__gte=npeople
+        ).order_by('table_capacity'))
+        cust_table = self.get_object().reserved_table.table_number
+
+        for res in res_on_requested_date:
+            for atable in available_tables:
+                if atable.table_number == res.reserved_table.table_number:
+                    if cust_table == atable.table_number:
+                        continue
+                    available_tables.remove(atable)
+                    break
+
+        if len(available_tables) > 0:
+            form.instance.reserved_table = available_tables[0]
+            messages.success(
+                self.request,
+                f'Booking confirmed for {npeople} people on' +
+                f'{rdate} at {RESERVED_TIME[rtime][1]}'
+            )
+        else:
+            messages.error(
+                self.request,
+                f'No table available for {npeople} people on' +
+                f'{rdate} at {RESERVED_TIME[rtime][1]}'
+            )
+
+            # form = ReservationForm(initial=reserved)
+            context = {
+                'form': form
+            }
+
+            return render(self.request,
+                          "../templates/edit_reservation.html", context)
+
+        return super(EditReservation, self).form_valid(form)
+
 # view for delete reservation
 
 
@@ -122,4 +160,9 @@ class DeleteReservation(generic.edit.DeleteView):
     def delete(self, request, pk):
         delete_reserved = get_object_or_404(Reservation, id=pk)
         delete_reserved.delete()
+        messages.success(
+            self.request,
+            f'Your reservation has been canceled. You can make a new'
+            f' reservation by clicking the button below.'
+        )
         return redirect('/reservations')
