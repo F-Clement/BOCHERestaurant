@@ -102,7 +102,6 @@ class EditReservation(generic.edit.UpdateView):
         return render(request, "../templates/edit_reservation.html", context)
 
     def form_valid(self, form):
-        res_id = self.get_object().id
         form.instance.user = self.request.user
         rdate = form.cleaned_data['reservation_date']
         rtime = form.cleaned_data['reservation_time']
