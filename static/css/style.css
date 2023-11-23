@@ -24,17 +24,15 @@
 }
 
 .card_notes>.row>.col-xl-3 {
-    background-color: #929fba;
-    border: 1px solid;
+    /* background-color: #929fba; */
+    background-color: rgba(184, 178, 178, 0.2);
+    border: 1px;
     margin: auto;
-   
-    color: white;
+    color: black;
 }
 
 /* Adding a reservation */
 .container-lg>.row>.col-xl-6 {
-    background-color: #929fba;
-    border: 1px solid;
     margin-right: auto;
     margin-bottom: 4vh;
     display: flex;
@@ -57,14 +55,18 @@
 .smoothies,
 .juice {
     text-align: center;
-    color: lightslategray;
-    margin-top: 3vh;
+    color: rgb(111, 117, 122);
+    margin:auto;
 }
 
 .menu>.row>.col-4 {
-    background-color: rgba(0, 0, 0, 0.2);
-    border: 1px solid;
+    background-color: rgba(184, 178, 178, 0.2);
+    border-radius: 10px;
+    border: 1px dotted;
     margin-right: auto;
+    border-color: white;
+    padding: auto;
+
 }
 
 .menu {

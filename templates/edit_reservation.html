@@ -3,14 +3,57 @@
 <div class="container-fluid mt-3">
     <h5 class="text-center mb-4">Edit Reservation</h5>
 </div>
+
 <div class="d-flex justify-content-center">
-  <div class="row g-3">
-    <form method="POST">
-      {% csrf_token %}
-      <div class="form-group">{{ form.as_p }}</div>
-      <button class="btn btn-success mt-4 mb-5" type="submit">Update Reservation</button>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <!-- <div class="form-group">{{ form.as_table }}</div> -->
+        <div class="container-lg bg-light rounded shadow">
+            <div class="row">
+                {{ form.non_field_errors }}
+                <div class="col-xl-6">
+                    {{ form.reservation_name.errors }}
+                    
+                    {{ form.reservation_name }}
+                </div>
+                <div class="col-xl-6">
+                    {{ form.reservation_email.errors }}
+                    
+                    {{ form.reservation_email }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6">
+                    {{ form.phone_number.errors }}
+                    
+                    {{ form.phone_number }}
+                </div>
+
+                <div class="col-xl-6">
+                    {{ form.number_people.errors }}
+                    
+                    {{ form.number_people }}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6">
+                    {{ form.reservation_date.errors }}
+                    
+                    {{ form.reservation_date }}
+                </div>
+
+                <div class="col-xl-6">
+                    {{ form.reservation_time.errors }}
+                    
+                    {{ form.reservation_time }}
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="btn btn-primary mb-2" type="submit">Update Reservation</button>
+            </div>
+        </div>
+        
     </form>
-  </div>
 </div>
 
 {% endblock %}

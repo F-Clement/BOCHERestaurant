@@ -14,51 +14,49 @@
   <form method="POST" action="">
     {% csrf_token %}
     <!-- <div class="form-group">{{ form.as_table }}</div> -->
-    <div class="container-lg">
+    <div class="container-lg bg-light rounded shadow">
       <div class="row">
         {{ form.non_field_errors }}
         <div class="col-xl-6">
           {{ form.reservation_name.errors }}
-          <label for="{{ form.reservation_name.id_for_label }}">Name:</label>
+          
           {{ form.reservation_name }}
         </div>
         <div class="col-xl-6">
           {{ form.reservation_email.errors }}
-          <label for="{{ form.reservation_email.id_for_label }}">Email:</label>
+          
           {{ form.reservation_email }}
         </div>
       </div>
       <div class="row">
         <div class="col-xl-6">
           {{ form.phone_number.errors }}
-          <label for="{{ form.phone_number.id_for_label }}">Phone:</label>
+          
           {{ form.phone_number }}
         </div>
 
         <div class="col-xl-6">
           {{ form.number_people.errors }}
-          <label for="{{ form.number_people.id_for_label }}"
-            >Number of People:</label
-          >
+          
           {{ form.number_people }}
         </div>
       </div>
       <div class="row">
         <div class="col-xl-6">
           {{ form.reservation_date.errors }}
-          <label for="{{ form.reservation_date.id_for_label }}">Date:</label>
+          
           {{ form.reservation_date }}
         </div>
 
         <div class="col-xl-6">
           {{ form.reservation_time.errors }}
-          <label for="{{ form.reservation_time.id_for_label }}">Time:</label>
+          
           {{ form.reservation_time }}
         </div>
       </div>
-    </div>
-    <div class="text-center">
-      <button class="btn btn-primary mb-2" type="submit">Reserve</button>
+        <div class="text-center">
+            <button class="btn btn-primary mb-2" type="submit">Reserve</button>
+        </div>
     </div>
   </form>
 </div>
