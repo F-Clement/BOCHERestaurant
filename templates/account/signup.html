@@ -3,21 +3,16 @@
 {% block head_title %}
     {% trans "Signup" %}
 {% endblock head_title %}
-
 {% block content %}
 <div class="row justify-content-center">
 <div class="col-md-auto">
     <div class="card mt-5 mb-5 shadow">
         <div class="text-center card-header">
-
             <h3>{% trans "Sign Up" %}</h3>
-
             <p>{% blocktrans %}Welcome back to the BOCHE Restaurant.{% endblocktrans %}</p>
-
         </div>
     <!-- Get individual signup fields so as to be able to use bootstrap on them -->
-        <div class="card-body ">
-            
+        <div class="card-body ">        
             <form class="login" method="POST" action="{% url 'account_signup' %}">
                 {% csrf_token %}
             <div class="text-center">
@@ -47,23 +42,18 @@
                         <li>Your password can’t be entirely numeric.</li>
                     </ul>
                 </div>
-
-
                 {% if redirect_field_value %}
                 <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
                 {% endif %}
                 <div class="col-md-auto text-center">
                 <button class="btn btn-primary" type="submit">{% trans "Sign Up" %}</button>
                 </div>
-
             </form>
-        </div>
-        
+        </div>       
         <div class="card-footer">
             <span class="helptext">If you already have an account <a href="/accounts/login">Sign In</a></span>
         </div>
     </div>
 </div>
 </div>
-
 {% endblock content %}
