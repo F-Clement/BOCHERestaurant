@@ -15,6 +15,10 @@ def validate_date(date):
     if date < datetime.date.today():
         raise ValidationError("Date cannot be in the past")
 
+def validate_npeople(npeople):
+    if npeople < 1:
+        raise ValidationError("Number of people cannot be less than one.")
+
 
 # Reservation Models for our database.
 class Reservation(models.Model):
@@ -22,7 +26,7 @@ class Reservation(models.Model):
     reservation_name = models.CharField(max_length=50)
     reservation_email = models.EmailField(max_length=70)
     phone_number = models.IntegerField()
-    number_people = models.IntegerField()
+    number_people = models.IntegerField(validators=[validate_npeople])
     reservation_date = models.DateField(validators=[validate_date])
     reservation_time = models.IntegerField(choices=RESERVED_TIME, default=1)
     datetime_created = models.DateTimeField(auto_now_add=True)
@@ -33,6 +37,8 @@ class Reservation(models.Model):
         return self.reservation_name + " at " + str(self.reservation_date) + \
             " " + str(self.reservation_time)
 
+    def reserve_time(self):
+        return RESERVED_TIME[self.reservation_time][1]
 
 #  A table model to be used to verify available space and avoid over booking
 # when making reservations.
