@@ -13,17 +13,23 @@ RESERVED_TIME = ((1, "09:00am - 11:00am"), (2, "11:00am - 13:00pm"),
 
 def validate_date(date):
     if date < datetime.date.today():
-        raise ValidationError("Date cannot be in the past")
+        raise ValidationError("Date cannot be in the past.")
 
 def validate_npeople(npeople):
     if npeople < 1:
         raise ValidationError("Number of people cannot be less than one.")
+    if npeople > 5:
+        raise ValidationError("Number of people cannot be greater than five.")
+
+def validate_name(res_name):
+    if len(res_name) < 3:
+        raise ValidationError("Name cannot be less than three characters.")
 
 
 # Reservation Models for our database.
 class Reservation(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    reservation_name = models.CharField(max_length=50)
+    reservation_name = models.CharField(max_length=20, validators=[validate_name])
     reservation_email = models.EmailField(max_length=70)
     phone_number = models.IntegerField()
     number_people = models.IntegerField(validators=[validate_npeople])
