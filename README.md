@@ -53,6 +53,7 @@ Used [Figma](figma.com) to design how the website should look on a computer.
 
   - Codeanywhere
   - Figma
+  - Bootstrap
   - Heroku
   - Git
   - Github
@@ -97,6 +98,7 @@ Used [Figma](figma.com) to design how the website should look on a computer.
     <tr>
         <th>Milestones</th>
         <th>User Story</th>
+        <th>Acceptance Criteria</th>
     </tr>
     <tr>
         <td>Basic Functionality</td>
@@ -106,6 +108,13 @@ Used [Figma](figma.com) to design how the website should look on a computer.
             <p>As a developer I can create a navigation menu so that users can easily navigate through the application.</p>
             <p>As a developer I can create a website footer in the base template so that it extends to other templates and we display some useful information there.</p>
             <p>As a developer I can deploy my empty project so that I confirm everything as far as deployment is concern works well to avoid last minute surprises.</p>
+        </td>
+        <td>
+            <p>Django project should be setup with required libraries installed</p>
+            <p>A base template that extends to the other templates should be created</p>
+            <p>A navigation menu should be made for users to easily browse the site</p>
+            <p>The footer should be in the base template</p>
+            <p>Project should be deployed in early stages</p>
         </td>
     </tr>
     <tr>
@@ -119,6 +128,13 @@ Used [Figma](figma.com) to design how the website should look on a computer.
             <p>As a site admin I can login to the admin page so that I manage reservations made by site users.</p>
             <p>As a site admin I want users to receive notifications when they login or logout so that their user experience is better.</p>
         </td>
+        <td>
+            <p>User can signup by providing some required information</p>
+            <p>User can login using user name and password</p>
+            <p>User can logout from his/her account by clicking logout</p>
+            <p>There should be an admin(Super User) that has access to all reservations</p>
+            <p>Users are notified when they login, make, update or cancel reservations</p>
+        </td>
     </tr>
     <tr>
         <td>
@@ -129,6 +145,12 @@ Used [Figma](figma.com) to design how the website should look on a computer.
             <p>As a site user I can see my reservation so that incase I forget the details I can login and to check.</p>
             <p>As a site user I can change my reservation so that incase of any emergency or changes in my schedule I still get a chance.</p>
             <p>As a site user I can cancel my reservation so that in the case where I can not be there on the reserved date I can notify the managers by just canceling the reservation.</p>
+        </td>
+        <td>
+            <p>Users can make reservations by filling a form and submitting</p>
+            <p>users can later check their reservations by login in and clicking on reservations</p>
+            <p>Users can edit their reservations and resubmit</p>
+            <p>Users should be able to cancel a reservation they made </p>
         </td>
     </tr>
     <tr>
@@ -141,6 +163,12 @@ Used [Figma](figma.com) to design how the website should look on a computer.
             <p>As a site user I can only edit my reservation if I am logged in so that others cannot edit my reservations.</p>
             <p>As a site user I can only cancel my reservation if I am logged in so that other users cannot cancel my reservations.</p>
         </td>
+        <td>
+            <p>A user can only make a reservation when he/she login</p>
+            <p>A users reservation can only be viewed when they login except for admin users</p>
+            <p>A reservation can only be edited by the logged in user</p>
+            <p>The functionality to cancel a reservation is only available when user is logged in</p>
+        </td>
     </tr>
     <tr>
         <td>
@@ -149,6 +177,10 @@ Used [Figma](figma.com) to design how the website should look on a computer.
         <td>
             <p>As a site user I can only make a reservation if there is an available table so that the tables are not double booked.</p>
             <p>As a site user I can be notified about the status of my reservation so that I know if the reservation was successful if not why.</p>
+        </td>
+        <td>
+            <p>If more than 5 users have made reservations at a particular time and date then a sixth user can't reserve for that same time and date</p>
+            <p>When a user updates, cancels or make a reservation, they should be notified</p>
         </td>
     </tr>
     <tr>
@@ -162,6 +194,15 @@ Used [Figma](figma.com) to design how the website should look on a computer.
             <p>As a restaurant owner I would like my homepage to be responsive so as to improve user experience when the visit the restaurant website.</p>
             <p>As a restaurant owner I would like my logout page to be responsive so as to improve user experience when they logout.</p>
             <p>As a restaurant owner I would like my Menu page to display the restaurant menuso that customers can have an idea of what to eat before coming on the day of their reservation.</p>
+        </td>
+        <td>
+            <p>Login page is responsive when browsed on other devices</p>
+            <p>Signup page is responsive</p>
+            <p>Reservation page is responsive</p>
+            <p>Home page is responsive</p>
+            <p>Logout page is responsive</p>
+            <p>Menu page is responsive</p>
+
         </td>
     </tr>
     <tr>
