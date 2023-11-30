@@ -9,6 +9,7 @@ from django.contrib import messages
 
 # Create your views here.
 
+
 class HomePage(generic.TemplateView):
     template_name = "index.html"
 

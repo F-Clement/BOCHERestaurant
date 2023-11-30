@@ -13,7 +13,7 @@
 <div class="d-flex justify-content-center">
   <form method="POST" action="">
     {% csrf_token %}
-    <!-- <div class="form-group">{{ form.as_table }}</div> -->
+    <!-- Our form fields written out explicit so that we can apply bootstrap -->
     <div class="container-lg bg-light rounded shadow">
       <div class="row">
         {{ form.non_field_errors }}

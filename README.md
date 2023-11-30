@@ -1,4 +1,4 @@
-Display <img src="static/reservation/images/responsive.png">
+Display <img src="static/reservation/images/bosche.png">
 
 Live URL:[BOCHE Restaurant](https://bocherestaurant-7ba3daeb5c57.herokuapp.com/)
 
@@ -293,6 +293,21 @@ in our test_forms.py file and manual test carried out as seen in the table below
         <td>Pass</td>
     </tr>
 </table>
+
+- Lighthouse Check
+
+Good performance as show below.
+![Lighthouse](static/reservation/images/lighthousedesk.png)
+
+- Responsiveness
+  
+The website is responsive as shown below in different screen sizes.
+<img src="static/reservation/images/responsive.png">
+
+
+### Note:
+The long lines of code generation pylint errors especially in the settings.py file
+where allowed for readability reasons.
 
 ## Deployment
 
