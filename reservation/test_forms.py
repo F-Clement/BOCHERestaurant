@@ -140,7 +140,8 @@ class ReservationFormTestCase(TestCase):
         Reservation.objects.create(
             user=self.user,
             reservation_name='Kewel1',
-            reservation_date=datetime.date.today() + datetime.timedelta(days=1),
+            reservation_date=datetime.date.today() + datetime.timedelta(
+                days=1),
             reservation_time=3,
             number_people=2,
             phone_number=676452266,
@@ -151,7 +152,8 @@ class ReservationFormTestCase(TestCase):
         Reservation.objects.create(
             user=self.user,
             reservation_name='Kewel2',
-            reservation_date=datetime.date.today() + datetime.timedelta(days=1),
+            reservation_date=datetime.date.today() + datetime.timedelta(
+                days=1),
             reservation_time=3,
             number_people=2,
             phone_number=676452266,
@@ -161,7 +163,8 @@ class ReservationFormTestCase(TestCase):
         Reservation.objects.create(
             user=self.user,
             reservation_name='Kewel3',
-            reservation_date=datetime.date.today() + datetime.timedelta(days=1),
+            reservation_date=datetime.date.today() + datetime.timedelta(
+                days=1),
             reservation_time=3,
             number_people=2,
             phone_number=676452266,
@@ -171,7 +174,8 @@ class ReservationFormTestCase(TestCase):
         Reservation.objects.create(
             user=self.user,
             reservation_name='Kewel4',
-            reservation_date=datetime.date.today() + datetime.timedelta(days=1),
+            reservation_date=datetime.date.today() + datetime.timedelta(
+                days=1),
             reservation_time=3,
             number_people=2,
             phone_number=676452266,
@@ -181,7 +185,8 @@ class ReservationFormTestCase(TestCase):
         Reservation.objects.create(
             user=self.user,
             reservation_name='Kewel5',
-            reservation_date=datetime.date.today() + datetime.timedelta(days=1),
+            reservation_date=datetime.date.today() + datetime.timedelta(
+                days=1),
             reservation_time=3,
             number_people=2,
             phone_number=676452266,

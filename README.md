@@ -13,6 +13,7 @@ users based on the number of people they input on their reservation. A maximum
 number of five people is is allowed and in case a user tries to make reserve
 a pariticular date and time where 5 other reservations have been made then he or
 she will get a message notifying them there is not available tabe at that time.
+Tables assigned to users will always be greater than or equal to number of people.
 
 ## Project Goals
 
@@ -202,7 +203,6 @@ Used [Figma](figma.com) to design how the website should look on a computer.
             <p>Home page is responsive</p>
             <p>Logout page is responsive</p>
             <p>Menu page is responsive</p>
-
         </td>
     </tr>
     <tr>
