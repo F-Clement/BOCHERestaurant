@@ -1,4 +1,4 @@
-![Display](/static/reservation/images/responsive.png)
+Display <img src="static/reservation/images/responsive.png">
 
 Live URL:[BOCHE Restaurant](https://bocherestaurant-7ba3daeb5c57.herokuapp.com/)
 
@@ -29,34 +29,67 @@ she will get a message notifying them there is not available tabe at that time.
   they visit the Restaurant so as to keep an orderly environment.
   - The site owner also wants to present a menu to users so they can make up their
   minds even before stepping into the restaurant.
-  
+
+## Design
+
+Used [Figma](figma.com) to design how the website should look on a computer.
+
+ <img src="static/reservation/images/design.png">
+
+## Site Flow
+
+<img src="/static/reservation/images/flow.png">
+
+## Technologies Used
+
+- Languages
+
+  - Python
+  - HTML
+  - JavaScript
+  - CSS
+
+- Tools
+
+  - Codeanywhere
+  - Figma
+  - Heroku
+  - Git
+  - Github
+  - CI Python Linter
+
 ## Existing Features
 
 - Navigation Menu
+  
   There is a navigation menu at the top to help users navigate the pages of the
     website easily. To the left is the name of the website acting as a logo.
-    ![Navigation Menu](/static/reservation/images/menu.png)
+    <img src="/static/reservation/images/menu.png">
   
 - Footer
+
   There is a footer to the bottom of every page. Useful information such as open
     hours, address and contact details can be seen in the footer.
-    ![Footer](/static/reservation/images/footer.png)
+    <img src="static/reservation/images/footer.png">
   
 - Restaurant Menu
+
   There is a Menu page showing the different meals and drinks users can consume at
     BOCHE Restaurant. This helps users to prepare their minds before coming to eat.
-    ![Restaurant Menu](/static/reservation/images/resmenu.png)
+    <img src="/static/reservation/images/resmenu.png">
   
 - Add Reservations
+
   There is an add reservation page, where the users fills in his information for
     his reservation, selects date and time then submits. He is notified with if this
     reservation is a success or not with a message.
-    ![Add Reservation](/static/reservation/images/addreserv.png)
+    <img src="/static/reservation/images/addreserv.png">
   
 - View Reservations
+
   A user can only view his own reservations. While the admin can manage all the
     reservations in the database.
-    ![View Reservations](/static/reservation/images/reservations.png)
+    <img src="/static/reservation/images/reservations.png">
   
 ## User Stories
 
@@ -140,8 +173,118 @@ she will get a message notifying them there is not available tabe at that time.
             <p>As a site developer I can write a readme file for my application so that other developers can read it to better understand my code.</p>
         </td>
     </tr>
-    
-
-
-
 </table>
+
+## Testing
+
+- Test for this website are divided in to two categories. Automated test as seen
+in our test_forms.py file and manual test carried out as seen in the table below
+
+<table>
+    <tr>
+        <th>Action</th>
+        <th>Expected Results</th>
+        <th>Actual Results</th>
+    </tr>
+    <tr>
+        <td>Enter live link for BOCH Restaurant in browser</td>
+        <td>Home page loads with new user not logged in</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click on Reservation when not authenticated</td>
+        <td>Site navigates to login page</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click on Reservation when authenticated</td>
+        <td>Site displays user's reservations if they have and a link to make a reservation</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click on link to make reservation</td>
+        <td>Site opens a form where user can fill fields then submit to make a reservation</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click on update reservation from list of reservations displayed</td>
+        <td>Site navigates to form with prefilled information from the reservation user wants to update</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click on delete in list of reservations</td>
+        <td>User is asked to confirm they want to cancel their reservation before they do</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click on Menu</td>
+        <td>The Restaurant Menu is displayed to the user weather he/she is authenticated or not</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click logout on navigation menu</td>
+        <td>User is prompted to confirm the want to sign out</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>User confirms to sign out after clicking logout on navigation menu</td>
+        <td>user is signed out and redirected to home page with navigation menu displaying login and sign up</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Click on signup</td>
+        <td>User is provided a form to fill his/her information and submit</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Clicking on the Logo BOCH Restaurant at any time</td>
+        <td>User is directed to the home page</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Input user name and password then click sign in</td>
+        <td>User is taken to home page provided the account exist in database</td>
+        <td>Pass</td>
+    </tr>
+    <tr>
+        <td>Sign in, Make reservation, update reservation, cancel reservation</td>
+        <td>User is notified with messages if the action taken is a success or a failure</td>
+        <td>Pass</td>
+    </tr>
+</table>
+
+## Deployment
+
+This application was deployed on Heroku. Below are the steps taken to successfully deploy.
+
+1 - The requirment.txt file was populated using the command "pip3 freeze > requirements.txt"
+
+2 - Then we move to Heroku dashboard and create a new app. The app was named bochrestaurant just like the application and Europe was selected for region because the developer is in Germany.
+
+3 - Then we move to settings and after selecting the app we also click Reveal Config Vars to set the environment variables.
+
+4 - Four key and value pairs were filled. Cloudinary URL, Database URL, PORT 8000 and our Secret key
+
+5 - The next steps were clicking the deploy tab, selecting Github, searching the project by its name and then connecting to Heroku by clicking connect.
+
+6 - Then clicking on Deploy Branch to complete the deploy. This application does not automatically deploy so each time the developer makes changes they have to come and deploy manually.
+
+8 - Finally the application is deployed live to URL: <https://bocherestaurant-7ba3daeb5c57.herokuapp.com/>
+
+## Credits
+
+- Deployement
+
+Thanks to Code Institute's Tutor support for assistance during deployment.
+
+- Media
+
+All images on this project were downloaded from google. However all images on the readme file itself are screenshots demonstrating different features of the application.
+
+- Code
+
+To better understand class based views [FBVs and CBVs](https://testdriven.io/blog/django-class-based-vs-function-based-views/)
+
+A lot of free content on the internet like [Stack Overflow](https://stackoverflow.com/)
+
+Special thanks to my mentor, my brother and the CI Slack Channel for support.
