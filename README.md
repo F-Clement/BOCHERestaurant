@@ -12,11 +12,9 @@ of Tables are created with given capacity and then the tables are assigned to
 users based on the number of people they input on their reservation. Tables
 assigned to users will always be greater than or equal to number of people.
 At the moment five tables have been created but if the admin adds some tables
-it should still work fine. So for now if a user tries to make reserve a 
+it should still work fine. So for now if a user tries to make reserve a
 pariticular date and time where 5 other reservations have been made then he or
 she will get a message notifying them there is not available tabe at that time.
-
-
 
 ## Project Goals
 
@@ -25,14 +23,14 @@ she will get a message notifying them there is not available tabe at that time.
 - The user wants to be able to make reservations so that they are sure about
   having a table when they go to eat.
   - The user also wants to be able to manage his reservations so that he can make
-  changes or cancel before time when it is not possible.
-  
+    changes or cancel before time when it is not possible.
+
 ### Site Owner Goals
 
 - The site owner wants to be able to receive reservations from customers before
   they visit the Restaurant so as to keep an orderly environment.
   - The site owner also wants to present a menu to users so they can make up their
-  minds even before stepping into the restaurant.
+    minds even before stepping into the restaurant.
 
 ## Design
 
@@ -60,42 +58,43 @@ Used [Figma](figma.com) to design how the website should look on a computer.
   - Bootstrap
   - Heroku
   - Git
+  - Tiny png
   - Github
   - CI Python Linter
 
 ## Existing Features
 
 - Navigation Menu
-  
+
   There is a navigation menu at the top to help users navigate the pages of the
-    website easily. To the left is the name of the website acting as a logo.
-    <img src="/static/reservation/images/menu.png">
-  
+  website easily. To the left is the name of the website acting as a logo.
+  <img src="/static/reservation/images/menu.png">
+
 - Footer
 
   There is a footer to the bottom of every page. Useful information such as open
-    hours, address and contact details can be seen in the footer.
-    <img src="static/reservation/images/footer.png">
-  
+  hours, address and contact details can be seen in the footer.
+  <img src="static/reservation/images/footer.png">
+
 - Restaurant Menu
 
   There is a Menu page showing the different meals and drinks users can consume at
-    BOCHE Restaurant. This helps users to prepare their minds before coming to eat.
-    <img src="/static/reservation/images/resmenu.png">
-  
+  BOCHE Restaurant. This helps users to prepare their minds before coming to eat.
+  <img src="/static/reservation/images/resmenu.png">
+
 - Add Reservations
 
   There is an add reservation page, where the users fills in his information for
-    his reservation, selects date and time then submits. He is notified with if this
-    reservation is a success or not with a message.
-    <img src="/static/reservation/images/addreserv.png">
-  
+  his reservation, selects date and time then submits. He is notified with if this
+  reservation is a success or not with a message.
+  <img src="/static/reservation/images/addreserv.png">
+
 - View Reservations
 
   A user can only view his own reservations. While the admin can manage all the
-    reservations in the database.
-    <img src="/static/reservation/images/reservations.png">
-  
+  reservations in the database.
+  <img src="/static/reservation/images/reservations.png">
+
 ## User Stories
 
 <table>
@@ -222,7 +221,7 @@ Used [Figma](figma.com) to design how the website should look on a computer.
 ## Testing
 
 - Test for this website are divided in to two categories. Automated test as seen
-in our test_forms.py file and manual test carried out as seen in the table below
+  in our test_forms.py file and manual test carried out as seen in the table below
 
 <table>
     <tr>
@@ -300,15 +299,32 @@ in our test_forms.py file and manual test carried out as seen in the table below
 - Lighthouse Check
 
 Good performance as show below.
-![Lighthouse](static/reservation/images/lighthousedesk.png)
+![Lighthouse](static/reservation/images/lighthoused.png)
 
 - Responsiveness
-  
+
 The website is responsive as shown below in different screen sizes.
 <img src="static/reservation/images/responsive.png">
 
+- HTML Validator
+
+Here 8 messages about trailing slashes have been filtered. They are not errors.
+Just info and could not be removed as they return automatically.
+<img src="static/reservation/images/htmlvalid.png">
+
+
+- CSS Validator
+
+<img src="static/reservation/images/validatecss.png">
+
+
+- Pylint
+  
+Pylint for views.py
+<img src="static/reservation/images/pylint.png">
 
 ### Note:
+
 The long lines of code generation pylint errors especially in the settings.py file
 where allowed for readability reasons.
 
