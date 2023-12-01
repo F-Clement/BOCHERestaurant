@@ -30,19 +30,25 @@ class AddReservation(generic.edit.CreateView):
         rtime = form.cleaned_data['reservation_time']
         npeople = form.cleaned_data['number_people']
 
+        # Get existing reservations on the same date and time
         reservations_on_requested_date = Reservation.objects.filter(
             reservation_date=rdate, reservation_time=rtime)
 
+        # Get tables with enough seats for the reservation
+        # Order tables by number of seats in ascending order
         available_tables = list(RestaurantTable.objects.filter(
             table_capacity__gte=npeople
         ).order_by('table_capacity'))
 
+        # Remove tables that are already reserved
         for res in reservations_on_requested_date:
             for atable in available_tables:
                 if atable.table_number == res.reserved_table.table_number:
                     available_tables.remove(atable)
                     break
 
+        # Check if there are available tables in the list
+        # Assign first table in the list to the reservation
         if len(available_tables) > 0:
             form.instance.reserved_table = available_tables[0]
             messages.success(
@@ -108,22 +114,29 @@ class EditReservation(generic.edit.UpdateView):
         rtime = form.cleaned_data['reservation_time']
         npeople = form.cleaned_data['number_people']
 
+        # Get existing reservations on the same date and time
         res_on_requested_date = Reservation.objects.filter(
             reservation_date=rdate, reservation_time=rtime)
 
+        # Get tables with enough seats for the reservation
+        # Order tables by number of seats in ascending order
         available_tables = list(RestaurantTable.objects.filter(
             table_capacity__gte=npeople
         ).order_by('table_capacity'))
         cust_table = self.get_object().reserved_table.table_number
 
+        # Remove tables that are already reserved
         for res in res_on_requested_date:
             for atable in available_tables:
                 if atable.table_number == res.reserved_table.table_number:
+                    # Do not remove table of existing reservation
                     if cust_table == atable.table_number:
                         continue
                     available_tables.remove(atable)
                     break
 
+        # Check if there are available tables in the list
+        # Assign first table in the list to the reservation
         if len(available_tables) > 0:
             form.instance.reserved_table = available_tables[0]
             messages.success(

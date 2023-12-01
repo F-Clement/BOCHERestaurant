@@ -319,14 +319,13 @@ Just info and could not be removed as they return automatically.
 
 
 - Pylint
+
+The long lines of code generation pylint errors especially in the settings.py file
+where allowed for readability reasons.
   
 Pylint for views.py
 <img src="static/reservation/images/pylint.png">
 
-### Note:
-
-The long lines of code generation pylint errors especially in the settings.py file
-where allowed for readability reasons.
 
 ## Deployment
 
