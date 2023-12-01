@@ -45,7 +45,9 @@
               <a class="nav-link" href="{% url 'menu' %}">Menu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'list_reservation' %}">Reservation</a>
+              <a class="nav-link" href="{% url 'list_reservation' %}"
+                >Reservation</a
+              >
             </li>
             {% if user.is_authenticated %}
             <li class="nav-item">
@@ -113,7 +115,6 @@
               <a
                 href="https://facebook.com"
                 target="_blank"
-                type="button"
                 class="btn btn-floating btn-primary btn-sm"
                 ><i class="fab fa-facebook-f"></i
               ></a>
@@ -121,7 +122,6 @@
               <a
                 href="https://twitter.com"
                 target="_blank"
-                type="button"
                 class="btn btn-floating btn-primary btn-sm"
                 ><i class="fab fa-twitter"></i
               ></a>

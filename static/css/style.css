@@ -56,7 +56,7 @@
 .juice {
     text-align: center;
     color: rgb(111, 117, 122);
-    margin:auto;
+    margin: auto;
 }
 
 .menu>.row>.col-4 {
@@ -65,7 +65,6 @@
     border: 1px dotted;
     margin-right: auto;
     border-color: white;
-    padding: auto;
 }
 
 .menu {

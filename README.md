@@ -9,11 +9,14 @@ can create, view, update and cancel reservations. However for security purposes,
 a user can only see his or her own reservation, while the admin(in this case the
 the Restaurant management) can manage all user reservation. A particular number
 of Tables are created with given capacity and then the tables are assigned to
-users based on the number of people they input on their reservation. A maximum
-number of five people is is allowed and in case a user tries to make reserve
-a pariticular date and time where 5 other reservations have been made then he or
+users based on the number of people they input on their reservation. Tables
+assigned to users will always be greater than or equal to number of people.
+At the moment five tables have been created but if the admin adds some tables
+it should still work fine. So for now if a user tries to make reserve a 
+pariticular date and time where 5 other reservations have been made then he or
 she will get a message notifying them there is not available tabe at that time.
-Tables assigned to users will always be greater than or equal to number of people.
+
+
 
 ## Project Goals
 
@@ -329,7 +332,7 @@ This application was deployed on Heroku. Below are the steps taken to successful
 
 ## Credits
 
-- Deployement
+- Deployment
 
 Thanks to Code Institute's Tutor support for assistance during deployment.
 
